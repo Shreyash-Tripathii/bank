@@ -1,0 +1,29 @@
+{%extends "main.html"%}
+{%block maincontent%}
+<div id="withdrawpagecover">
+
+          <form action="." method="post">
+              <h3>Withdraw Money</h3>
+            <label for="accno">Your account number: </label>
+            <input disabled type="text" placeholder={{account}}>
+            <label for="deposit">Enter the amount you wish to withdraw</label>
+            {%if amt_error%}
+            <div class="error-text">Insufficient Balance</div>
+            {%endif%}
+            <input name="amount" type="number" min="100.00">
+            <label for="deposit">Enter your transaction pin</label>
+            {%if trpin_error%}
+            <div class="error-text">Invalid Tpin</div>
+            {%endif%}
+            <input required name="trpin" type="password">
+            <input type="submit" value="Generate Withdraw Bill ID">
+          <div id="withbeware">Warning: Unique Withdraw bill id will be generated only once</div>
+          </form>
+        {%if displayPin %}
+          <div id="withgen">
+            <h3>Your generated Withdraw Bill id for deposit of <i class="fa fa-solid fa-rupee-sign"></i> {{amt}} is: </h3>
+            <input disabled type="text" placeholder={{pin}}>
+          </div>
+        {%endif%}
+        </div>
+{%endblock%}

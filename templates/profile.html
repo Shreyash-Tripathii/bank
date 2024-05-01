@@ -1,0 +1,54 @@
+{%extends "main.html"%}
+{%block maincontent%}
+<div id="profilepagecover">
+          <h3>Profile</h3>
+          <div id="profilepagecontent">
+          <div id="profile-image">{{profile.first[0]}}</div>
+          <div id="profile-content">
+          <div id="profile-content">
+
+              <label class="name">
+              <i class="fa-solid"> FIRST NAME</i>
+              <div class="profile-input">{{profile.first}}</div>
+              </label>
+
+              <label class="name">
+              <i class="fa-solid"> LAST NAME</i
+              ><div class="profile-input">{{profile.last}}</div>
+              </label>
+
+              <label>
+              <i class="fa-solid"> AGE</i>
+              <div class="profile-input">{{profile.age}}</div>
+              </label>
+
+              <label>
+              <i class="fa-solid"> GENDER</i
+              ><div class="profile-input">{{profile.gender}}</div>
+              </label>
+
+              <label class="name">
+              <i class="fa-solid"> PHONE NUMBER</i>
+              <div class="profile-input">{{"+91 "+phone}}</div>
+              </label>
+
+              <label class="name">
+              <i class="fa-solid"> PAN NUMBER</i>
+              <div class="profile-input">{{profile.pano}}</div>
+              </label>
+
+              <label class="name">
+              <i class="fa-solid"> ACCOUNT NUMBER</i>
+              <div class="profile-input">{{account}}</div>
+              </label>
+
+              <label class="name">
+              <i class="fa-solid"> ADDRESS</i>
+              <textarea cols="30" disabled rows="3">{{profile.address}}</textarea>
+              </label>
+
+          </div>
+          </div>
+        </div>
+        </div>
+{%endblock%}

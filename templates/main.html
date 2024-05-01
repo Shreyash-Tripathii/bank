@@ -1,0 +1,28 @@
+{%extends "base.html"%}
+{%block title%}Home{%endblock%}
+{%block content%}
+<div id="mainforepage">
+        <div id="mainpagesidebar">
+            <div id="profilerow">
+                <a href={{url_for('profile_screen')}} id="profile">
+                    <div id="profileimage">{{ profile.first[0] }}</div>
+                    <div id="profilename">{{profile.first+" "+profile.last}}</div>
+                </a>
+            </div>
+            <div id="optionsrow">
+                <div><a href={{url_for('index')}}><i class="fa fa-solid fa-home"></i> Home</a></div>
+                <div><a href={{url_for('deposit_screen')}}><i class="fa fa-solid fa-vault"></i> Deposit Money</a></div>
+                <div><a href={{url_for('withdraw_screen')}}><i class="fa fa-solid fa-wallet"></i> Withdraw Money</a></div>
+                <div><a href={{url_for('transfer_screen')}}><i class="fa fa-solid fa-money-check"></i> Transfer Money</a></div>
+                <div><a href={{url_for('generate_screen')}}><i class="fa fa-solid fa-receipt"></i> Generate Account Statement</a></div>
+            </div>
+            <div id="logoutrow">
+                <div><a href={{url_for('logout')}}><i class="fa fa-solid fa-sign-out"></i></a></div>
+            </div>
+        </div>
+        <div id="mainpagecontent">
+            {%block maincontent%}
+            {%endblock%}
+            <div id="mainpagefooter"><i class="fa fa-solid fa-copyright"></i>&nbsp; Copyrighted 2024, XYZ Bank</div>
+        </div>
+{%endblock%}

@@ -1,0 +1,16 @@
+{%extends "main.html"%}
+{%block maincontent%}
+<div id="generatepagecover">
+          <h3>Generate Account Statement</h3>
+          <div class="approved">Keep Both fields empty to generate a complete statement</div>
+          <form action="." method="POST">
+          <label>From:
+            <input type="date" name="start" />
+          </label>
+          <label>To:
+            <input type="date" name="end" />
+          </label>
+          <input type="submit" value="Generate CSV File">
+        </form>
+        </div>
+{%endblock%}

@@ -1,0 +1,77 @@
+{%extends "main.html"%}
+{%block maincontent%}
+        <div id="homepagecover">
+          <div id="amtcover">
+            <div id="amtheader">Balance</div>
+                <div id="amtamount">
+                    <i class="fa fa-solid fa-rupee-sign"></i> {{account.balance}}
+                </div>
+            </div>
+          <div></div>
+          <div id="transact-section">
+            <div id="transact-header">Transaction History (Your Last 3 transactions)</div>
+            {%if tfExists%}
+            <div id="transactions">
+            <table>
+                <thead>
+                  <tr>
+                  <td>S. No.</td>
+                  <td>Type</td>
+                  <td>Account No.</td>
+                  <td>Amount</td>
+                  <td>Date</td>
+                </tr>
+                </thead>
+                <tbody>
+            {%for tr in transfers%}
+            <tr>
+                <td>{{loop.index}}</td>
+                {%if tr.from_acc==account.accno %}
+                <td>SENT</td>
+                <td>{{tr.from_acc}}</td>
+                {%else%}
+                <td>RECEIVED</td>
+                <td>{{tr.to_acc}}</td>
+                {%endif%}
+                <td>{{tr.amt}}</td>
+                <td>{{tr.posted.strftime("%A, %d %B %Y at %H:%M")}}</td>
+            </tr>
+            {%endfor%}
+            </tbody>
+            </table>
+            </div>
+            {%else%}
+            <div id="transact-history">You have not committed any transactions with this account</div>
+            {%endif%}
+          </div>
+          <div id="depwith-section">
+            <div id="depwith-header">Deposit/Withdrawal History (Your Last 3 deposits/withdrawals)</div>
+            {%if trExists%}
+            <div id="depwiths">
+            <table>
+                <thead>
+                  <tr>
+                  <td>S. No.</td>
+                  <td>Type</td>
+                  <td>Amount</td>
+                  <td>Date</td>
+                </tr>
+                </thead>
+                <tbody>
+            {%for tr in transacts%}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{tr.tran_type}}</td>
+                <td>{{tr.amt}}</td>
+                <td>{{tr.posted.strftime("%A, %d %B %Y at %H:%M")}}</td>
+            </tr>
+            {%endfor%}
+            </tbody>
+            </table>
+            </div>
+            {%else%}
+            <div id="depwith-history">You have not committed any deposits or withdrawals with this account</div>
+            {%endif%}
+          </div>
+        </div>
+{%endblock%}

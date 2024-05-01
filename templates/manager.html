@@ -1,0 +1,22 @@
+{%extends "base.html"%}
+{%block title%}Home{%endblock%}
+{%block content%}
+<div id="mainforepage">
+<div id="managerforepage">
+            <h4>Enter Deposit/Withdrawal Code</h4>
+            <form action="." method="post">
+                {%if error==True%}
+                <div class="error-text">No request found</div>
+                {%endif%}
+                {%if error==False%}
+                <div class="approved">Request Approved</div>
+                {%endif%}
+                <input type="text" name="trcode" placeholder="Enter here">
+                <input type="submit" value="Approve">
+            </form>
+            <div id="managerlogout">
+            <a href={{url_for('logout')}}><i class="fa fa-solid fa-sign-out"></i></a>
+            </div>
+        </div>
+</div>
+{%endblock%}

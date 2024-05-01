@@ -1,0 +1,29 @@
+{%extends "base.html"%}
+{%block title%}Login{%endblock%}
+{%block content%}
+<div id="loginforepagecover">
+<div id="loginforepage">
+        <div id="loginpageimg">
+            <h2>Welcome to</h2>
+            <h1>XYZ Banking Services</h1>
+            <img style="transform: scale(0.7);" src="../static/loginimg.png" alt="headimg" />
+        </div>
+        <div id="loginform">
+            <form action="." method="post">
+                <h4>Account Login</h4>
+                <div class="form-group">
+                    {% if error %}
+                    <div class="error">Invalid Username/Password</div>
+                    {% endif %}
+                    <label><i class="fa-solid fa fa-user"> USERNAME</i></label>
+                    <input type="text" placeholder="Enter here" name="username" />
+                    <label><i class="fa-solid fa fa-lock"> PASSWORD</i></label>
+                    <input type="password" placeholder="Enter here" name="password" />
+                    <input type="submit" value="Login">
+                </div>
+                <div class="loginfooter">New here? <span class="footerlink"><a href="{{url_for('register_page')}}">Sign Up</a></span></div>
+            </form>
+        </div>
+    </div>
+</div>
+{%endblock%}

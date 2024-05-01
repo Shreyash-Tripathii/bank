@@ -1,0 +1,12 @@
+{%extends "base.html"%}
+{%block title%}TRPIN{%endblock%}
+{%block content%}
+<div id="trpinforepage">
+        <h3>Please note the following transaction pin will not be displayed again and will not be regnerated</h3>
+        <div id="pin">
+            <label>Your trpin is: </label>
+            {{pin.trpin}}
+        </div>
+        <div class="loginfooter"><span class="footerlink"><a href="{{url_for('index')}}">Return to Home Page</a></span></div>
+    </div>
+{%endblock%}

@@ -1,0 +1,26 @@
+{%extends "main.html"%}
+{%block maincontent%}
+<div id="transferpagecover">
+          <h3>Make Payments</h3>
+          {%if tr_success %}
+          <div id="transfer-success">Your transaction was successful</div>
+          {%endif%}
+          <form action="." method="post">
+            <label id="accgroup">
+              <label for="accno">Your account number:
+                <input disabled type="text" placeholder={{account}}>
+              </label>
+              <label for="accno">Enter account number of recipient:
+                {%if acc_error%} <div class="error-text">Account not found</div> {%endif%}
+                <input name="receive" type="numeric"></label>
+            </label>
+            <label for="deposit">Enter the amount you wish to deposit: </label>
+            {%if bal_error%} <div class="error-text">Insufficient Balance</div> {%endif%}
+            <input name="amount" type="number" min="10.00">
+            <label for="trpin">Enter your transaction pin: </label>
+            {%if trpin_error%} <div class="error-text">Incorrect Transaction Pin</div> {%endif%}
+            <input name="trpin" type="password">
+            <input type="submit" value="Make Payments">
+          </form>
+        </div>
+{%endblock%}

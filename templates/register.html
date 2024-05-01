@@ -1,0 +1,90 @@
+{%extends "base.html"%}
+{%block title%}Register{%endblock%}
+{%block content%}
+<div id="registerforepage">
+      <div id="registerform">
+        <form action="." method="post">
+          <h1>Welcome to XYZ Bank</h1>
+          <h3>Account Registration</h3>
+          <div class="reg-form">
+            <label class="name"
+              ><i class="fa-solid"> FIRST NAME</i>
+              <input type="text" placeholder="Enter here" name="firstname" required />
+            </label>
+            <label class="name"
+              ><i class="fa-solid"> LAST NAME</i
+              ><input type="text" placeholder="Enter here" name="lastname" required />
+            </label>
+            <label
+              ><i class="fa-solid"> AGE</i>
+              {%if error_age %}
+              <div class="error-text">you need to be 18 years old to register</div>
+              {%endif%}
+              <input type="number" placeholder="Enter here" name="age" required />
+            </label>
+            <label
+              ><i class="fa-solid"> GENDER</i
+              ><select name="gender" required>
+                <option selected disabled>Select a gender</option>
+                <option value="male">MALE</option>
+                <option value="female">FEMALE</option>
+                <option value="none">RATHER NOT SAY</option>
+              </select>
+            </label>
+            <label class="name"
+              ><i class="fa-solid"> PAN NO.</i>
+              <input minlength="11" maxlength="11" type="text" placeholder="Enter here" name="pano" required />
+            </label>
+            <label class="name">
+              <i class="fa-solid"> PHONE NUMBER</i>
+              <input name="phone" required placeholder="Enter here"  type="number" minlength="10" maxlength="10">
+            </label>
+            <label class="name">
+              <i class="fa-solid"> ADDRESS</i>
+              <input name="address" required placeholder="Enter here"  type="text">
+            </label>
+            <label
+              >
+                <i class="fa-solid"> USERNAME</i
+              >
+                {%if error_use %}
+              <div class="error-text">user already exists</div>
+              {%endif%}
+              <input
+                type="text"
+                placeholder="Enter a unique username"
+                name="username" required
+            /></label>
+            <label class="name"
+              >
+                <i class="fa-solid"> PASSWORD</i>
+                {%if error_pass %}
+                <div class="error-text">Passwords do not match</div>
+              {%endif%}
+              <input required type="password" minlength="8" placeholder="Enter here" name="password" />
+            </label>
+            <label class="name"
+              >
+                <i class="fa-solid"> CONFIRM PASSWORD</i
+              >
+
+                {%if error_pass %}
+                <div class="error-text">Passwords do not match</div>
+              {%endif%}
+              <input
+                type="password"
+                placeholder="Enter here"
+                name="conf_password" required
+            /></label>
+            <input type="submit" value="Register" />
+          </div>
+          <div class="loginfooter">
+            Already have an account?
+            <span class="footerlink"
+              ><a href="{{url_for('login_page')}}">Sign In</a></span
+            >
+          </div>
+        </form>
+      </div>
+    </div>
+{%endblock%}

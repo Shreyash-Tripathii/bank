@@ -1,0 +1,20 @@
+{%extends "main.html"%}
+{%block maincontent%}
+<div id="depositpagecover">
+          <h3>Deposit Money</h3>
+          <form action="." method="post">
+            <label for="accno">Your account number: </label>
+            <input disabled type="text" placeholder={{account}}>
+            <label for="deposit">Enter the amount you wish to deposit</label>
+            <input name="amount" type="number" min="100.00">
+            <input type="submit" value="Generate Deposit Bill ID">
+          </form>
+          <div id="depbeware">Warning: Unique Deposit bill id will be generated only once</div>
+          {%if displayPin %}
+          <div id="depgen">
+            <h3>Your generated Deposit Bill id for deposit of <i class="fa fa-solid fa-rupee-sign"></i> {{amt}} is: </h3>
+            <input disabled type="text" placeholder={{pin}}>
+          </div>
+          {%endif%}
+        </div>
+{%endblock%}
